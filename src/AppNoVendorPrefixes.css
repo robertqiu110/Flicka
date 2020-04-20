@@ -1,0 +1,813 @@
+@import url("https://fonts.googleapis.com/css2?family=Squada+One");
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
+
+body {
+    background-color: #f0f0f0;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.App {
+    height: 100%; margin: 0;
+    text-align: center;
+}
+
+.main_logo {
+    color: #ff5e9c;
+    font-size: 80px;
+    font-family: "Squada One";
+    margin: 0;
+    padding-top: 20vh;
+}
+
+.below_logo_text {
+    font-size: 27px;
+    font-family: "Assistant";
+    font-weight: 700;
+    color: #ff5e9c;
+    margin: 0;
+    margin-top: -5px;
+}
+
+.searchContainer {
+    display: inline-block;
+}
+
+.searchFormContainer {
+    display: inline-block;
+    margin-top: 20px;
+    height: 70px;
+}
+
+.searchForm {
+    display: inline-block;
+}
+
+.searchForm input {
+    width: 750px;
+    height: 70px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    padding: 0 20px;
+    padding-right: 70px;
+    box-sizing: border-box;
+    font-size: 23px;
+    margin: 0;
+    font-family: "Assistant";
+    font-weight: 600;
+    color: #666;
+    vertical-align: top;
+}
+
+.searchForm input::placeholder {
+    color: #ccc;
+}
+
+.searchArrowInput {
+    width: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.searchButtonContainer {
+    padding: 0;
+    margin: 0;
+    height: 70px;
+    width: 95px;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.searchLoading {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin: 0;
+    padding: 10px;
+    top: -70px;
+    left: -82.5px;
+}
+
+.searchButtonContainer button {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #ff5e9c;
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 23px;
+    border-radius: 0 4px 4px 0;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.searchButtonContainer button:hover {
+    background-color: #ff8aca;
+}
+
+.noRadius {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.suggestions {
+    width: 845px;
+    padding: 0;
+    position: relative;
+    left: calc(50% - 422.5px);
+    margin: 0;
+    box-shadow: 0 2px 2px -2px #bbb;
+    z-index: 1;
+}
+
+.suggestionBlock {
+    width: 100%;
+    height: 70px;
+    background-color: white;
+    list-style: none;
+    margin: 0;
+    border-top: 1px #eee solid;
+    cursor: pointer;
+}
+
+.suggestionBlock:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.suggestionBlockImgContainer {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin: 10px 20px;
+    float: left;
+    background-color: #ddd;
+}
+
+.suggestionBlockImg {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.suggestionBlockTitle {
+    margin: 0;
+    float: left;
+    font-family: "Assistant";
+    font-size: 20px;
+    font-weight: 700;
+    width: calc(100% - 90px);
+    text-align: left;
+    height: 35px;
+    vertical-align: bottom;
+    margin-top: 11.5px;
+    color: #888;
+}
+
+.suggestionBlockYear {
+    margin: 0;
+    float: left;
+    font-family: "Assistant";
+    font-size: 17px;
+    font-weight: 700;
+    width: calc(100% - 90px);
+    text-align: left;
+    height: 35px;
+    vertical-align: top;
+    margin-top: -12.5px;
+    color: #bbb;
+}
+
+.suggestionBlock:hover {
+    background-color: #f7f7f7;
+}
+
+.arrowSelectedBlock {
+    background-color: #e7e7e7;
+}
+
+.arrowSelectedBlock:hover {
+    background-color: #e7e7e7;
+}
+
+.picked {
+    overflow: auto;
+    width: 855px;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.pickedClear {
+    width: 130px;
+    height: 165px;
+    line-height: 165px;
+    display: inline-block;
+    margin: 6.25px;
+    background-color: white;
+    border-radius: 4px;
+    float: left;
+    overflow: hidden;
+    box-shadow: 0 2px 2px -2px #bbb;
+    cursor: pointer;
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 17px;
+    color: #888;
+    user-select: none;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+.pickedClear:hover {
+    background-color: #ccc;
+    color: #555;
+}
+
+.pickedMovie {
+    width: 130px;
+    height: 165px;
+    display: inline-block;
+    margin: 6.25px;
+    background-color: white;
+    border-radius: 4px;
+    float: left;
+    overflow: hidden;
+    box-shadow: 0 2px 2px -2px #bbb;
+    cursor: pointer;
+}
+
+.pickedMovieHover {
+    background-color: white;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: filter 0.15s;
+    transition: -webkit-filter 0.15s;
+}
+
+.pickedMovie:hover .pickedMovieHover{
+    filter: brightness(0.7);
+    -webkit-filter: brightness(0.7);
+}
+
+.pickedMovie:hover .pickedMovieRemove{
+    opacity: 1;
+}
+
+.pickedMovieRemove {
+    top: -165px;
+    width: 130px;
+    height: 165px;
+    line-height: 165px;
+    margin: 0;
+    position: relative;
+    display: block;
+    vertical-align: middle;
+    color: white;
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 17px;
+    opacity: 0;
+    transition: opacity 0.2s;
+    -webkit-transition: opacity 0.2s;
+    user-select: none;
+}
+
+.pickedMovieImgContainer {
+    width: 130px;
+    height: 130px;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+    float: left;
+    background-color: #cdcdcd;
+}
+
+.pickedMovieImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.pickedMovieTitle {
+    margin: 0;
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 15px;
+    color: #666;
+    line-height: 35px;
+    height: 35px;
+    width: 130px;
+    float: left;
+}
+
+.results {
+    width: 845px;
+    display: block;
+    clear: both;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.resultsTitle {
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 24px;
+    background-color: #dfdfdf;
+    color: #777;
+    line-height: 50px;
+    border-radius: 4px;
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.resultsError {
+    font-family: "Assistant";
+    font-weight: 600;
+    font-size: 22px;
+    color: #999;
+    margin: 0;
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+.resultsLoadMore {
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 24px;
+    background-color: white;
+    color: #888;
+    line-height: 50px;
+    border-radius: 4px;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: 0 2px 2px -2px #bbb;
+    transition: color 0.15s;
+}
+
+.resultsLoadMore:hover {
+    color: #ff5e9c;
+}
+
+.resultsContainer {
+    overflow: auto;
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 15px;
+    margin-bottom: 40px;
+}
+
+.resultMovie {
+    display: inline-block;
+    margin: 0;
+    background-color: white;
+    border-radius: 4px;
+    float: left;
+    box-shadow: 0 2px 2px -2px #bbb;
+    cursor: pointer;
+    height: fit-content;
+    text-align: left;
+    text-decoration: none;
+}
+
+.resultMovie:hover .resultMovieTitle {
+    color: #ff5e9c;
+}
+
+.resultMovieImgContainer {
+    width: 200px;
+    height: 300px;
+    margin: 0;
+    border-radius: 4px 4px 0 0;
+    background-color: #cdcdcd;
+}
+
+.resultMovieImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+    display: block;
+}
+
+.resultMovieTitle {
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 18px;
+    overflow-wrap: anywhere;
+    width: 200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 10px;
+    color: #444;
+    transition: color 0.15s;
+}
+
+.resultMovieYear {
+    font-family: "Assistant";
+    font-weight: 600;
+    font-size: 17px;
+    overflow-wrap: anywhere;
+    width: 200px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.resultsLoading {
+    width: 85px;
+    height: 85px;
+}
+
+.moviePageWrapper {
+    width: 845px;
+    display: block;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.moviePageLogo {
+    text-decoration: none;
+    color: #ff5e9c;
+    font-size: 50px;
+    font-family: "Squada One";
+    margin: 0;
+    display: inline-block;
+    margin-bottom: 50px;
+    transition: color 0.15s;
+}
+
+.moviePageLogo:hover {
+    color: #ff8aca;
+}
+
+.moviePageTop {
+    width: 100%;
+    min-height: 375px;
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 2px -2px #bbb;
+}
+
+.moviePageImgContainer {
+    width: 250px;
+    height: 100%;
+    margin: 0;
+    border-radius: 4px;
+    background-color: #cdcdcd;
+    box-shadow: 2px 0px 2px -2px #bbb;
+}
+
+.moviePageImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    margin: 0;
+    display: block;
+}
+
+.moviePageTopRight {
+    width: 595px;
+    overflow-wrap: anywhere;
+    font-family: "Assistant";
+    box-sizing: border-box;
+    text-align: left;
+    margin: 0;
+    padding-bottom: 30px;
+}
+
+.moviePageTitle {
+    font-weight: 700;
+    font-size: 28px;
+    padding: 0 30px;
+    margin: 0;
+    margin-top: 30px;
+    color: #444;
+}
+
+.moviePageSmallDetails {
+    margin: 0;
+    padding: 0 30px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #777;
+}
+
+.moviePageTagline {
+    margin: 0;
+    padding: 0 30px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #999;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+.moviePageOverview {
+    margin: 0;
+    padding: 0 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
+    margin-top: 10px;
+}
+
+.moviePageGenres {
+    margin: 0;
+    padding: 0 30px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #666;
+    margin-top: 20px;
+    overflow-wrap: normal;
+    overflow: auto;
+}
+
+.moviePageGenreBlock {
+    background-color: #ff5e9c;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 5px 10px 5px 0;
+    float: left;
+}
+
+.movieLearnMore {
+    text-decoration: none;
+    background-color: #ddd;
+    color: #777;
+    box-shadow: 0 2px 2px -2px #bbb;
+    transition: background-color, color 0.15s;
+}
+
+.movieLearnMore:hover {
+    background-color: #bbb;
+    color: white;
+}
+
+.bannerContainer {
+    width: 100%;
+    height: 200px;
+}
+
+.bannerContainer p {
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 35px;
+    color: white;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    top: -200px;
+    display: block;
+    line-height: 200px;
+}
+
+.flickaBanner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.aboutTitle {
+    font-family: "Assistant";
+    font-weight: 700;
+    font-size: 35px;
+    color: #444;
+    margin: 0;
+    margin-top: 60px;
+}
+
+.aboutIntro {
+    font-family: "Assistant";
+    font-size: 20px;
+    color: #444;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 40px;
+    line-height: 31px;
+    margin-top: 40px;
+}
+
+.aboutText {
+    font-family: "Assistant";
+    font-size: 18px;
+    color: #444;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0 40px;
+    line-height: 26px;
+    margin-top: 10px;
+}
+
+.aboutText a {
+    text-decoration: none;
+    color: #ff5e9c;
+    font-weight: 600;
+    transition: color 0.15s;
+}
+
+.aboutText a:hover {
+    color: #ff8aca;
+}
+
+.aboutTextLast {
+    margin-top: 70px;
+}
+
+.oops {
+    font-family: "Assistant";
+    font-size: 40px;
+    color: #999;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 80px;
+}
+
+.takeMeBack {
+    text-decoration: none;
+    color: #ff5e9c;
+    font-family: "Assistant";
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+    transition: color 0.15s;
+}
+
+.takeMeBack:hover {
+    color: #ff8aca;
+}
+
+.AppWrapper {
+    min-height: calc(100% - 120px);
+}
+
+.footer {
+    background-color: #d7d7d7;
+    border-top: 1px #ccc solid;
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    margin-top: 80px;
+}
+
+.footerText {
+    line-height: 38px;
+    height: 38px;
+    vertical-align: middle;
+    margin: 0;
+    font-family: "Assistant";
+    font-weight: 600;
+    font-size: 16px;
+    color: #777;
+}
+
+.footerText a {
+    text-decoration: none;
+    color: #ff5e9c;
+    font-weight: 700;
+    transition: color 0.15s;
+}
+
+.footerText a:hover {
+    color: #ff8aca;
+}
+
+@media (max-width: 900px) {
+    .searchForm input {
+        width: 535px;
+    }
+
+    .suggestions {
+        width: 630px;
+        left: calc(50% - 315px);
+    }
+
+    .picked {
+        width: 640px;
+    }
+
+    .results {
+        width: 630px;
+    }
+
+    .resultsContainer {
+        grid-template-columns: auto auto auto;
+    }
+
+    .moviePageWrapper {
+        width: 630px;
+    }
+
+    .moviePageTop {
+        min-height: 300px;
+    }
+
+    .moviePageImgContainer {
+        width: 200px;
+    }
+
+    .moviePageTopRight {
+        width: 430px;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 681px) {
+    .pickedMovie {
+        width: 147.5px;
+        height: 187.2px;
+    }
+
+    .pickedMovieImgContainer {
+        width: 147.5px;
+        height: 147.5px;
+    }
+
+    .pickedMovieTitle {
+        width: 147.5px;
+        height: 39px;
+        line-height: 39px;
+    }
+
+    .pickedMovieRemove {
+        top: -187.2px;
+        width: 147.5px;
+        height: 187.2px;
+        line-height: 187.2px;
+    }
+
+    .pickedClear {
+        width: 147.5px;
+        height: 187.2px;
+        line-height: 187.2px;
+    }
+}
+
+@media (max-width: 680px) {
+    .searchForm input {
+        width: 320px;
+    }
+
+    .suggestions {
+        width: 415px;
+        left: calc(50% - 207.5px);
+    }
+
+    .picked {
+        width: 427.5px;
+    }
+
+    .results {
+        width: 415px;
+    }
+
+    .resultsContainer {
+        grid-template-columns: auto auto;
+    }
+
+    .moviePageWrapper {
+        width: 415px;
+    }
+
+    .moviePageTop {
+        min-height: 0;
+        grid-template-columns: auto;
+    }
+
+    .moviePageImgContainer {
+        width: 415px;
+        height: 622.5px;
+    }
+
+    .moviePageTopRight {
+        width: 415px;
+    }
+}
+
+@media (max-height: 750px) {
+    .searchFormContainer {
+        height: auto;
+    }
+}
